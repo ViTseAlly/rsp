@@ -1,4 +1,7 @@
-use std::io;
+use super::game::Rps;
+
+use std::io::{self, Write};
+use std::collections::HashMap;
 
 
 pub struct Input {
@@ -10,7 +13,9 @@ impl Input {
     Input { val: None }
   }
 
-  pub fn inp(&mut self) -> &mut Self {
+  pub fn inp(&mut self, _txt: String) -> &mut Self {
+    print!("{}", _txt);
+    io::stdout().flush().expect("Cant flushed input.");
     let mut usr_inp: String = String::new();
     io::stdin()
         .read_line(&mut usr_inp)
@@ -27,6 +32,15 @@ impl Input {
       }
     } else {
       Err(())
+    }
+  }
+
+  pub fn get_move(input: &i32) -> Rps {
+    match input {
+        1 => Rps::Rock,
+        2 => Rps::Scissor,
+        3 => Rps::Paper,
+        _ => panic!("Invalid move number"),
     }
   }
 }
