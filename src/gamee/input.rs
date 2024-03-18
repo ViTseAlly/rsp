@@ -1,7 +1,6 @@
 use super::game::Rps;
 
 use std::io::{self, Write};
-use std::collections::HashMap;
 
 
 pub struct Input {

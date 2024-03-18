@@ -1,8 +1,6 @@
 use crate::gamee::game::Rps;
 use crate::gamee::input::Input;
 
-use std::collections::HashMap;
-
 
 pub struct UserData {
     pub user_name: String,
@@ -35,3 +33,4 @@ impl User {
       self
     }
 }
+
